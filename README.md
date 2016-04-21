@@ -1,7 +1,10 @@
 # Streamable.dotNET
 .NET API library for streamable.com
 
-This is an implementation of API via C# for .NET applications
+Streamable API implementation via C# for .NET applications
+
+Link to official documentation 
+https://streamable.com/documentation
 
 ## How to
 ### 1 Create a client class
