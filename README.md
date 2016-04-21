@@ -10,7 +10,7 @@ https://streamable.com/documentation
 ### 1 Create a client class
             var client = new StreamableAPI();
 
-### 2 Your variables
+### 2 Your temp variables
             string filePath = "c:\\temp\\zyra.mp4";
             string userName = "YourUserName";
             string password = "YourPass";
