@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Streamable.dotNET", "Streamable.dotNET\Streamable.dotNET.csproj", "{F30C36F2-0FEC-4173-8C4A-D0E65EA45A90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{7EF6212F-E792-446F-B84F-2DEAB13C7BA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp", "TestConsole\ExampleApp.csproj", "{7EF6212F-E792-446F-B84F-2DEAB13C7BA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

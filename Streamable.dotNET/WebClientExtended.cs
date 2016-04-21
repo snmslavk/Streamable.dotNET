@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Streamable.dotNET.Models;
+using System;
 using System.Net;
-using Streamable.dotNET.Models;
+using System.Text;
 
 namespace Streamable.dotNET
 {
-    class WebClientExtended
+    class WebClientExtended 
     {
-        protected void SetCredentials(WebClient wc, string userName, string password)
+        private void SetCredentials(
+            WebClient wc, 
+            string userName, 
+            string password
+            )
         {
             string credentials = Convert.ToBase64String(
                    Encoding.ASCII.GetBytes(userName + ":" + password));
@@ -19,27 +20,53 @@ namespace Streamable.dotNET
                     "Basic {0}", credentials);
         }
 
-        protected void UploadFile(UploadAuthFileModel model)
+        internal UploadVideoResponse UploadFile(UploadAuthFileModel model)
         {
-            UploadFile(model.url,model.filePath,model.userName, model.password);
+            return UploadFile(model.url,model.filePath,model.userName, model.password);
         }
 
-        protected void UploadFile(UploadFileModel model)
+        internal UploadVideoResponse UploadFile(UploadFileModel model)
         {
-            UploadFile(model.url, model.filePath);
+            return UploadFile(model);
         }
 
-        protected void UploadFile(string url, string filePath, string userName=null, string password=null)
+        internal UploadVideoResponse UploadFile(
+            string url, 
+            string filePath, 
+            string userName = null, 
+            string password = null
+            )
         {
-            using (WebClient client = new WebClient())
+            using (var client = new WebClient())
             {
                 if (!String.IsNullOrEmpty(userName) || !String.IsNullOrEmpty(password))
                     SetCredentials(client, userName, password);
 
-                var zz = Encoding.UTF8.GetString(
-                    client.UploadFile(url, filePath)
-                    );
+                return Json.Get_UploadVideoResponse(
+                    Encoding.UTF8.GetString(
+                        client.UploadFile(url, filePath)
+                    )
+                );
+
+
             }
         }
+
+        public string GetData(
+            string url,
+            string userName = null,
+            string password = null
+            )
+        {
+            using (var client = new WebClient())
+            {
+                if (!String.IsNullOrEmpty(userName) || !String.IsNullOrEmpty(password))
+                    SetCredentials(client, userName, password);
+
+                return client.DownloadString(url);
+            }
+        }
+
+
     }
 }

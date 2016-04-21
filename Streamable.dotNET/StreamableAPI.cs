@@ -4,40 +4,72 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Streamable.dotNET.Interfaces;
+using Streamable.dotNET.Models;
 
 namespace Streamable.dotNET
 {
     public class StreamableAPI : IStreamableAPI
     {
+        WebClientExtended client = null;
 
-        public Models.UploadVideoResponse Upload()
+        public StreamableAPI()
         {
-            throw new NotImplementedException();
+            client = new WebClientExtended();
         }
 
-        public Models.UploadVideoResponse Import()
+        
+        public UploadVideoResponse Upload(string filePath, string userName, string password)
         {
-            throw new NotImplementedException();
+            return client.UploadFile(Config.UploadUrl, filePath, userName, password);
         }
 
-        public void Retrive()
+        public UploadVideoResponse Upload(string filePath)
         {
-            throw new NotImplementedException();
+            return client.UploadFile(Config.UploadUrl, filePath);
         }
 
-        public Models.UserModel RetrieveUser()
+        public UploadVideoResponse Import(string videoUrl, string userName, string password)
         {
-            throw new NotImplementedException();
+            return Json.Get_UploadVideoResponse(
+                client.GetData(Config.ImportUrl + videoUrl, userName, password)
+            );
+
         }
 
-        public void RetrieveAuthUser()
+        public UploadVideoResponse Import(string videoUrl)
         {
-            throw new NotImplementedException();
+            return Import(videoUrl,null,null);
+
         }
 
-        public Models.oEmbedModel GEToEmbed()
+        public RetriveVideoModel Retrive(string shortcode)
         {
-            throw new NotImplementedException();
+            return Json.Get_RetriveVideoModel(
+                client.GetData(Config.RetriveUrl + shortcode)
+                );
+
         }
+
+        public UserModel RetrieveUser(string userName)
+        {
+            return Json.Get_UserModel(
+                client.GetData(Config.RetriveUser + userName)
+            );
+        }
+
+        public UserModel RetrieveAuthUser(string userName, string password)
+        {
+            return Json.Get_UserModel(
+                client.GetData(Config.RetriveAuthUser, userName, password)
+            );
+        }
+
+        public oEmbedModel GEToEmbed(string urlVideo)
+        {
+            return Json.Get_oEmbed(
+                client.GetData(Config.GEToEmbed + urlVideo)
+            );
+        }
+
     }
 }
