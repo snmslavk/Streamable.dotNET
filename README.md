@@ -1,7 +1,10 @@
 # Streamable.dotNET
 .NET API library for streamable.com
 
-This is an implementation of API via C# for .NET applications
+Streamable API implementation via C# for .NET applications
+
+Link to official documentation 
+https://streamable.com/documentation
 
 ## How to
 ### 1 Create a client class
@@ -27,11 +30,11 @@ This is an implementation of API via C# for .NET applications
             var res = client.Upload(filePath, userName, password);
             var res = client.Upload(filePath);
 
-### 6 Retrive video
+### 7 Retrive video
             var res = client.Retrive("uz0t");
 
-### 6 Retrive user
+### 8 Retrive user
             var res = client.RetrieveUser("snmslavk");
 
-### 6 Retrive auth user
+### 9 Retrive auth user
             var res = client.RetrieveAuthUser(userName, password);
