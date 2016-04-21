@@ -12,8 +12,9 @@ namespace Streamable.dotNET.Interfaces
         UploadVideoResponse Upload();
         UploadVideoResponse Import();
         void Retrive();
-        void RetrieveUser();
+        UserModel RetrieveUser();
         void RetrieveAuthUser();
-        void GEToEmbed();
+        oEmbedModel GEToEmbed();
     }
 }
+
