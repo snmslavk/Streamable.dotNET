@@ -7,10 +7,15 @@ Link to official documentation
 https://streamable.com/documentation
 
 ## How to
+### 0 Install
+Use nuget console
+
+            Install-Package Streamable.dotNET
+
 ### 1 Create a client class
             var client = new StreamableAPI();
 
-### 2 Your variables
+### 2 Your temp variables
             string filePath = "c:\\temp\\zyra.mp4";
             string userName = "YourUserName";
             string password = "YourPass";
