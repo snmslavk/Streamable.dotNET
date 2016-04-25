@@ -2,10 +2,11 @@
 using System;
 using System.Net;
 using System.Text;
+using Streamable.dotNET.Interfaces;
 
 namespace Streamable.dotNET
 {
-    class WebClientExtended 
+    class WebClientExtended : IWebClientExtended 
     {
         private void SetCredentials(
             WebClient wc, 
@@ -20,7 +21,7 @@ namespace Streamable.dotNET
                     "Basic {0}", credentials);
         }
 
-        internal UploadVideoResponse UploadFile(UploadAuthFileModel model)
+        public UploadVideoResponse UploadFile(UploadAuthFileModel model)
         {
             return UploadFile(model.url,model.filePath,model.userName, model.password);
         }
@@ -30,7 +31,7 @@ namespace Streamable.dotNET
             return UploadFile(model);
         }
 
-        internal UploadVideoResponse UploadFile(
+        public UploadVideoResponse UploadFile(
             string url, 
             string filePath, 
             string userName = null, 

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Config.cs" />
     <Compile Include="Interfaces\IStreamableAPI.cs" />
+    <Compile Include="Interfaces\IWebClientExtended.cs" />
     <Compile Include="Json.cs" />
     <Compile Include="Models\oEmbedModel.cs" />
     <Compile Include="Models\RetriveVideoModel.cs" />

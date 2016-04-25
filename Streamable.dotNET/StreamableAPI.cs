@@ -5,13 +5,17 @@ namespace Streamable.dotNET
 {
     public class StreamableAPI : IStreamableAPI
     {
-        WebClientExtended client = null;
+        IWebClientExtended client = null;
 
         public StreamableAPI()
         {
             client = new WebClientExtended();
         }
 
+        public StreamableAPI(IWebClientExtended paramClient)
+        {
+            client = paramClient;
+        }
         
         public UploadVideoResponse Upload(string filePath, string userName, string password)
         {
