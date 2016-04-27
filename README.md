@@ -6,7 +6,7 @@ Streamable API implementation via C# for .NET applications
 Link to official documentation 
 https://streamable.com/documentation
 
-Link to official tool list
+Link to official tools list
 https://streamable.com/tools
 
 ## How to
